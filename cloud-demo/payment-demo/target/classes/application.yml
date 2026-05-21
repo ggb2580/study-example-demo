@@ -1,0 +1,54 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: PAYMENT-DEMO
+
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/cloud-db?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
+    username: root
+    password: 123456
+  #rabbitmq 配置
+  rabbitmq:
+    host: 192.168.226.129
+    port: 5672
+    username: admin
+    password: 123456
+    listener:
+      simple:
+        acknowledge-mode: manual
+#    deserialization:
+#      trust:
+#        all: false
+#        trusted-packages:
+#          - com.clouddemo.paymentdemo.entity   # 注意是 trusted-packages，复数，数组格式
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.clouddemo.paymentdemo.entity
+
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /v3/api-docs
+
+  group-configs:
+    - group: '账单模块'
+      paths-to-match:
+        - '/com.clouddemo.paymentdemo/**'
+    - group: '用户模块'
+      paths-to-match:
+        - '/user/**'
+knife4j:
+  enable: true
+  production: false
+  setting:
+    language: zh_cn
+    enable-swagger-models: true
+    swagger-model-name: '实体类列表'
+
+
