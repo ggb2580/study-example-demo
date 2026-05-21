@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: shopcache-demo
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/localguide?useSSL=false&serverTimezone=UTC
+    username: root
+    password: 123456
+  data:
+    redis:
+      host: localhost
+      password: 123456
+      port: 6379
+      lettuce:
+        pool:
+          max-active: 10
+          max-idle: 10
+          min-idle: 1
+          time-between-eviction-runs: 10s
+server:
+  port: 8080
