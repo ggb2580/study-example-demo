@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: order-server
+  cloud:
+    nacos:
+      server-addr: localhost:8848
+      discovery:
+        username: nacos
+        password: nacos
+        namespace: public
+    loadbalancer:
+      ribbon:
+        enabled: false
+server:
+  port: 8088
+logging:
+  level:
+    com.alibaba.demo.service: debug
