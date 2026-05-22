@@ -1,0 +1,20 @@
+server:
+  port: 8030
+spring:
+  application:
+    name: order-ribbon
+  cloud:
+    nacos:
+      server-addr: localhost:8848
+      discovery:
+        username: nacos
+        password: nacos
+        namespace: public
+
+stock-service:
+  ribbon:
+    NFLoadBalancerRuleClassName: springcloudalibabademo.orderribbon.syc.ribbon.MyRule
+ribbon:
+  eager-load:
+    enabled: true
+    clients: stock-service

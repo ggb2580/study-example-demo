@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: order-server
+  cloud:
+    nacos:
+      server-addr: localhost:8848
+      discovery:
+        username: nacos
+        password: nacos
+        namespace: public
+server:
+  port: 8080
