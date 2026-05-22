@@ -1,0 +1,5 @@
+server:
+  port: 8050
+spring:
+  profiles:
+    active: dev

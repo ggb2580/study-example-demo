@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: com.nacos.config
+  cloud:
+    nacos:
+      server-addr: localhost:8848
+      discovery:
+        username: nacos
+        password: nacos
+#        namespace: public
+      config:
+        file-extension: yaml
+        shared-configs:
+          - data-id: com.syc.common.yaml
+            refresh: true
+          - data-id: com.syc.common01.yaml
+            refresh: true
+        extension-configs[0]:
+          data-id: com.syc.common02.yaml
+          refresh: true
+
+#        group: sycgroup
+
